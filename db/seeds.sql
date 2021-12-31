@@ -10,16 +10,10 @@ VALUES
     ('Purchasing Assistant', '60000', 2),
     ('Manager', '70000', 3);
 
-INSERT INTO manager (first_name, last_name, department_id)
-VALUES
-    ('Lisa', 'Michaels', 1),
-    ('Mason', 'Sanchez', 2),
-    ('Morgan', 'Jackson', 3);
-
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
-    ('Molly', 'Johnson', 3, 0),
-    ('Rob', 'Markson', 1, 0),
-    ('Jane', 'Carlson', 2, 0),
-    ('John', 'Smith', 1, 0),
-    ('Krista', 'Sims', 2, 0);
+    ('Molly', 'Johnson', 3, NULL),
+    ('Rob', 'Markson', 1, NULL),
+    ('Jane', 'Carlson', 2, 1),
+    ('John', 'Smith', 1, 1),
+    ('Krista', 'Sims', 2, 2);
