@@ -7,7 +7,7 @@ const db = mysql.createConnection(
         password: 'schmoo24',
         database: 'employees'
     },
-    console.log('Connected to the employees database.')
+    console.log("Hi! You're connected to the 'Employees' database.")
 );
 
 module.exports = db;
