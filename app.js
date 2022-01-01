@@ -1,22 +1,30 @@
 const inquirer = require('inquirer');
 const db = require('./db/connection');
 
-// db.query('SELECT * FROM employees.employee', (err, res) => {
-//     if (err) throw err;
-        // console.table(res);
-// })
-
 // initialize inquirer prompt
 function init() {
         inquirer.prompt(firstQ)
         .then((answers) => {
                 switch(answers.start) {
                         case 'View all departments':
-                                // function to view all departments;
+                                db.query('SELECT * FROM employees.department', (err, res) => {
+                                        if (err) throw err;
+                                        console.table(res);
+                                })
                                 break;
 
                         case 'View all roles':
-                                // function to view all roles;
+                                db.query('SELECT * FROM employees.role', (err, res) => {
+                                        if (err) throw err;
+                                        console.table(res);
+                                })
+                                break;
+                        
+                        case 'View all employees':
+                                db.query('SELECT * FROM employees.employee', (err, res) => {
+                                        if (err) throw err;
+                                        console.table(res);
+                                })
                                 break;
 
                         case 'Add a department':
