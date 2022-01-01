@@ -10,21 +10,24 @@ function init() {
                                 db.query('SELECT * FROM employees.department', (err, res) => {
                                         if (err) throw err;
                                         console.table(res);
-                                })
+                                        init();
+                                });
                                 break;
 
                         case 'View all roles':
                                 db.query('SELECT * FROM employees.role', (err, res) => {
                                         if (err) throw err;
                                         console.table(res);
-                                })
+                                        init();
+                                });
                                 break;
                         
                         case 'View all employees':
                                 db.query('SELECT * FROM employees.employee', (err, res) => {
                                         if (err) throw err;
                                         console.table(res);
-                                })
+                                        init();
+                                });
                                 break;
 
                         case 'Add a department':
@@ -42,7 +45,7 @@ function init() {
                         case 'Update an employee':
                                 // function to update an employee;
                                 break;
-                }
+                };
         })
 }
 
