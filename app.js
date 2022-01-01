@@ -103,10 +103,9 @@ function init() {
                         case 'Add a role':
                                 inquirer.prompt(addRole)
                                 .then((addRoleAnswers) => {
-                                        // function to add role to table
-                                        db.query('SELECT * FROM employees.role', (err, res) => {
+                                        db.query(`INSERT INTO employees.role (title, salary, department_id) VALUES ('${addRoleAnswers.roleName}', '${addRoleAnswers.roleSalary}', ${addRoleAnswers.roleDept})`, (err, res) => {
                                                 if (err) throw err;
-                                                console.table(res);
+                                                console.log(`${addRoleAnswers.roleName} has been added to Roles.`);
                                                 init();
                                         })
                                 })
