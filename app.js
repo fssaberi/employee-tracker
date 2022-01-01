@@ -8,18 +8,40 @@ const db = require('./db/connection');
 
 // initialize inquirer prompt
 function init() {
-        return inquirer.prompt(firstQ).then((answers) => {
-                console.log(answers)
-        })
-        .catch((err) => {
-                console.log(err);
+        inquirer.prompt(firstQ)
+        .then((answers) => {
+                switch(answers.start) {
+                        case 'View all departments':
+                                // function to view all departments;
+                                break;
+
+                        case 'View all roles':
+                                // function to view all roles;
+                                break;
+
+                        case 'Add a department':
+                                // function to add a department;
+                                break;
+
+                        case 'Add a role':
+                                // function to add a role;
+                                break;
+
+                        case 'Add an employee':
+                                // function to add an employee;
+                                break;
+                        
+                        case 'Update an employee':
+                                // function to update an employee;
+                                break;
+                }
         })
 }
 
 // ask series of questions
 const firstQ = [
         {
-                type: 'checkbox',
+                type: 'list',
                 name: 'start',
                 message: 'What would you like to do?',
                 choices: ['View all departments', 'View all roles', 'View all employees', 'Add a department', 'Add a role', 'Add an employee', 'Update an employee role']
