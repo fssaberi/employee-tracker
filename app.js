@@ -33,7 +33,7 @@ const addRole = [
         {
                 type: 'input',
                 name: 'roleDept',
-                message: 'What is the name of the department this role is in?'
+                message: 'What is the ID number of the department that this role will be in?'
         }
 ]
 
@@ -114,10 +114,9 @@ function init() {
                         case 'Add an employee':
                                 inquirer.prompt(addEmployee)
                                 .then((addEmployeeAnswers) => {
-                                        // function to add employee to table
-                                        db.query('SELECT * FROM employees.employee', (err, res) => {
+                                        db.query(`INSERT INTO employees.employee (first_name, last_name, role_id, manager_id) VALUES ('${addEmployeeAnswers.firstName}', '${addEmployeeAnswers.lastName}', ${addEmployeeAnswers.employeeRole}, ${addEmployeeAnswers.employeeManager})`, (err, res) => {
                                                 if (err) throw err;
-                                                console.table(res);
+                                                console.log(`${addEmployeeAnswers.firstName} ${addEmployeeAnswers.lastName} has been added to Employees.`);
                                                 init();
                                         })
                                 })
