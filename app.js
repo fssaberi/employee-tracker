@@ -136,11 +136,11 @@ function init() {
                                 .then((updateEmployeeRoleAnsweres) => {
                                         db.query()
                                 })
-                                db.query('SELECT * FROM employees.employee', (err, res) => {
-                                        if (err) throw err;
-                                        console.table(res);
-                                        init();
-                                })
+                                // db.query('SELECT * FROM employees.employee', (err, res) => {
+                                //         if (err) throw err;
+                                //         console.table(res);
+                                //         init();
+                                // })
                                 break;
                 };
         })
