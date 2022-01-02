@@ -60,12 +60,21 @@ const addEmployee = [
         }
 ]
 
-const updateEmployeeRole = [
+const selectEmployee = [
         {
                 type: 'list',
-                name: 'updateEmployeeRole',
+                name: 'selectEmployee',
                 message: 'Please select the employee whose role you would like to update.',
-                choices: employee
+                choices: []
+        }
+]
+
+const selectNewRole = [
+        {
+                type: 'list',
+                name: 'selectNewRole',
+                message: "Please select the employee's new role.",
+                choices: []
         }
 ]
 
@@ -132,10 +141,12 @@ function init() {
                                 break;
                         
                         case 'Update an employee role':
-                                inquirer.prompt(updateEmployeeRole)
-                                .then((updateEmployeeRoleAnsweres) => {
-                                        db.query()
-                                })
+                                inquirer.prompt(selectEmployee)
+                                .then((selectEmployeeAnswers) => {
+                                        inquirer.prompt(selectNewRole)
+                                        .then(() => {
+
+                                        })                                })
                                 // db.query('SELECT * FROM employees.employee', (err, res) => {
                                 //         if (err) throw err;
                                 //         console.table(res);
