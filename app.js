@@ -140,19 +140,19 @@ function init() {
                                 })
                                 break;
                         
-                        case 'Update an employee role':
-                                inquirer.prompt(selectEmployee)
-                                .then((selectEmployeeAnswers) => {
-                                        inquirer.prompt(selectNewRole)
-                                        .then(() => {
+                        // case 'Update an employee role':
+                        //         inquirer.prompt(selectEmployee)
+                        //         .then((selectEmployeeAnswers) => {
+                        //                 inquirer.prompt(selectNewRole)
+                        //                 .then(() => {
 
-                                        })                                })
-                                // db.query('SELECT * FROM employees.employee', (err, res) => {
-                                //         if (err) throw err;
-                                //         console.table(res);
-                                //         init();
-                                // })
-                                break;
+                        //                 })                                })
+                        //         // db.query('SELECT * FROM employees.employee', (err, res) => {
+                        //         //         if (err) throw err;
+                        //         //         console.table(res);
+                        //         //         init();
+                        //         // })
+                        //         break;
                 };
         })
 }
