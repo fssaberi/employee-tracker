@@ -60,6 +60,15 @@ const addEmployee = [
         }
 ]
 
+const updateEmployeeRole = [
+        {
+                type: 'list',
+                name: 'updateEmployeeRole',
+                message: 'Please select the employee whose role you would like to update.',
+                choices: employee
+        }
+]
+
 // initialize app
 function init() {
         inquirer.prompt(firstQ)
@@ -122,8 +131,11 @@ function init() {
                                 })
                                 break;
                         
-                        case 'Update an employee':
-                                // function to update an employee;
+                        case 'Update an employee role':
+                                inquirer.prompt(updateEmployeeRole)
+                                .then((updateEmployeeRoleAnsweres) => {
+                                        db.query()
+                                })
                                 db.query('SELECT * FROM employees.employee', (err, res) => {
                                         if (err) throw err;
                                         console.table(res);
