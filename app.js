@@ -33,7 +33,7 @@ const addRole = [
         {
                 type: 'input',
                 name: 'roleDept',
-                message: 'What is the ID number of the department that this role will be in?'
+                message: 'What is the name of the department that this role will be in?'
         }
 ]
 
@@ -74,7 +74,7 @@ function init() {
                                 break;
 
                         case 'View all roles':
-                                db.query('SELECT * FROM employees.role', (err, res) => {
+                                db.query('SELECT * FROM employees.role r INNER JOIN department d ON r.department_id = d.id', (err, res) => {
                                         if (err) throw err;
                                         console.table(res);
                                         init();
@@ -82,7 +82,7 @@ function init() {
                                 break;
                         
                         case 'View all employees':
-                                db.query('SELECT * FROM employees.employee', (err, res) => {
+                                db.query('SELECT e.id, e.first_name, e.last_name, e.manager_id, r.title, r.salary, d.name FROM employees.employee e INNER JOIN employees.role r ON e.role_id = r.id INNER JOIN employees.department d ON r.department_id = d.id', (err, res) => {
                                         if (err) throw err;
                                         console.table(res);
                                         init();
